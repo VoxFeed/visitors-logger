@@ -1,9 +1,6 @@
-require 'rubygems'
-require 'dotenv'
 # set path to app that will be used to configure unicorn,
 # note the trailing slash in this example
-Dotenv.load
-@dir = "#{ENV['APP_PATH']}"
+@dir = "/home/deploy/apps/TellYouWhy/current/"
 
 puts "DIR!! " + @dir
 

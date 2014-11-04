@@ -1,3 +1,5 @@
+require 'capistrano/setup'
+
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
@@ -64,6 +66,15 @@ namespace :deploy do
     end
   end
 
+  task :prepare_for_unicorn do
+    on roles(:app) do
+      execute "mkdir #{fetch(:deploy_to)}/current/tmp"
+      execute "mkdir #{fetch(:deploy_to)}/current/tmp/pids"
+      execute "mkdir #{fetch(:deploy_to)}/current/tmp/sockets"
+      execute "mkdir #{fetch(:deploy_to)}/current/log"
+    end
+  end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -73,6 +84,7 @@ namespace :deploy do
   end
 
   after :publishing, :bundle
+  after :publishing, :prepare_for_unicorn
   after :publishing, :restart
 
   after :restart, :clear_cache do
