@@ -1,0 +1,23 @@
+form {
+	visibility : hidden;
+}
+
+html {
+	margin     : 0;
+	padding    : 0;
+	background : #5d5d5d;
+}
+
+body {
+	height : 100%;
+}
+
+main {
+	visibility: hidden;
+	height:0;
+}
+p {
+	color      : #efefef;
+	font-size  : 6em;
+	text-align : center;
+}

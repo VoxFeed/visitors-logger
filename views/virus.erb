@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tell You Why - Your computer got virus and malware</title>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="description" content="The main reason why your computer is always getting new malware installed."></meta>
+
+  <meta property="og:title" content="Tell You Why - Your computer got virus and malware"/>
+  <meta property="og:image" content="/images/2014/iphone-better-android/post-image.jpg"/>
+  <meta property="og:site_name" content="Tell You Why"/>
+  <meta property="og:description" content="The main reason why your computer is always getting new malware installed."/>
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">
+  	window.submitAjaxRequest = function submitAjaxRequest() {
+  		$.ajax({
+  			url : '/verify_js',
+  			data : {
+  				session_id : '<%= @session_id %>'
+  			},
+  			method : 'POST',
+  			success : function successHandler(data, status, xhrObject) {
+  				console.log("Data : ", data);
+  			}
+  		});
+  	}
+  	</script>
+</head>
+<body>
+	<main id="main-content" role="main">
+		<article>
+			<header>
+				<h1>Why your computer got virus and malware</h1>
+			</header>
+			<time datetime="<%= Time.now.strftime('%Y-%d-%m')%>">
+				<%= Time.now.strftime("%B %e, %Y") %>
+			</time>
+			<section>
+				<p>
+					<a class="image-link" href="/images/2014/you-got-virus/post-image.jpg" alt="Why you got virus" title="Why you got virus"></a>
+				</p>
+
+				<p>Stop suffering from attacks to your computer, keeping viruses and other malware away from your computer is actually easier than you think. It is not true that you need to purchase expensive anti-virus software and keep it up to date just to make sure nothing evil will come in and destroy your data.</p>
+
+				<p>Most developers, engenieers and other technology savyy people have always kept their computers safe from external attackers. To do so they follow a simple rule of thumb, which I will discuss in just a second, however you must first understand the reasons why viruses and malware infect your computer so that you can change this pattern forever.</p>
+
+				<p>Here is the key:</p>
+			</section>
+		</article>
+	</main>
+	<div>
+		<p>Because you keep falling for these fake articles!</p>
+	</div>
+	<div>
+		<form action="/capture_request" method="post">
+			<input type="hidden" id="session_id" name="session_id" value="<%= @session_id %>"/>
+			<input type="text" id="name" name="name" placeholder="Please submit your name" />
+			<input type="submit">Submit</input>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+  		$(document).ready(submitAjaxRequest);
+  	</script>
+</body>
+</html>
