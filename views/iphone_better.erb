@@ -1,65 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Tell You Why - iPhone is better than Android</title>
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-  <meta name="description" content="In case you are still defending android here are the final arguments that will change your mind."></meta>
-  <meta property="og:title" content="Tell You Why - iPhone is better than Android"/>
-  <meta property="og:image" content="/images/2014/iphone-better-android/post-image.jpg"/>
-  <meta property="og:site_name" content="Tell You Why"/>
-  <meta property="og:description" content="In case you are still defending android, we will just tell you Why iPhone is better."/>
-	
-  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+<main id="main-content" role="main">
+	<article>
+		<header>
+			<h1>Why iPhone is better than Android</h1>
+		</header>
+		<time datetime="<%= Time.now.strftime('%Y-%d-%m')%>">
+			<%= Time.now.strftime("%B %e, %Y") %>
+		</time>
+		<section>
+			<p>
+				<a class="image-link" href="<%= @image %>" alt="iPhone is better than andoid" title=""></a>
+			</p>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script type="text/javascript">
-  	window.submitAjaxRequest = function submitAjaxRequest() {
-  		$.ajax({
-  			url : '/verify_js',
-  			data : {
-  				session_id : '<%= @session_id %>'
-  			},
-  			method : 'POST',
-  			success : function successHandler(data, status, xhrObject) {
-  				console.log("Data : ", data);
-  			}
-  		});
-  	}
-  	</script>
-</head>
-<body>
-	<main id="main-content" role="main">
-		<article>
-			<header>
-				<h1>Why iPhone is better than Android</h1>
-			</header>
-			<time datetime="<%= Time.now.strftime('%Y-%d-%m')%>">
-				<%= Time.now.strftime("%B %e, %Y") %>
-			</time>
-			<section>
-				<p>
-					<a class="image-link" href="/images/2014/iphone-better-android/post-image.jpg" alt="iPhone is better than andoid" title=""></a>
-				</p>
+			<p>At this point most people should be convinced that iPhone is by far superior than Android, trying to compare the two is like trying to compare the sun to a meteor.</p>
 
-				<p>At this point most people should be convinced that iPhone is by far superior than Android, trying to compare the two is like trying to compare the sun to a meteor.</p>
-
-				<p>In case you are still defending android here are the final arguments that will change your mind.</p>
-			</section>
-		</article>
-	</main>
-	<div>
-		<p>Because Fuck You!</p>
-	</div>
-	<div>
-		<form action="/capture_request" method="post">
-			<input type="hidden" id="session_id" name="session_id" value="<%= @session_id %>"/>
-			<input type="text" id="name" name="name" placeholder="Please submit your name" />
-			<input type="submit">Submit</input>
-		</form>
-	</div>
-
-	<script type="text/javascript">
-  		$(document).ready(submitAjaxRequest);
-  	</script>
-</body>
-</html>
+			<p>In case you are still defending android here are the final arguments that will change your mind.</p>
+		</section>
+	</article>
+</main>
+<div>
+	<p>Because Fuck You!</p>
+</div>

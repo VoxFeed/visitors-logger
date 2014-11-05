@@ -5,6 +5,9 @@ set :public_folder, File.dirname(__FILE__) + '/public'
 
 get '/iphone-better-than-android' do
 	@session_id = Digest::MD5.hexdigest(request.ip + request.user_agent + Time.now.to_s)
+	@title = "iPhone is better than Android"
+	@description = "In case you are still defending android here are the final arguments that will change your mind."
+	@image = "/images/2014/iphone-better-android/post-image.jpg"
 
 	request_data = RequestData.new({
 		session_id: @session_id,
@@ -14,11 +17,14 @@ get '/iphone-better-than-android' do
 
 	request_data.save
 
-	erb :iphone_better
+	erb :iphone_better, :layout => :main_layout
 end
 
 get '/you-got-virus-and-malware' do
 	@session_id = Digest::MD5.hexdigest(request.ip + request.user_agent + Time.now.to_s)
+	@title = "Your computer got virus and malware"
+	@description = "The main reason why your computer is always getting new malware installed."
+	@image = "/images/2014/you-got-virus-and-malware/post-image.jpg"
 
 	request_data = RequestData.new({
 		session_id: @session_id,
@@ -28,7 +34,7 @@ get '/you-got-virus-and-malware' do
 
 	request_data.save
 
-	erb :virus
+	erb :virus, :layout => :main_layout
 end
 
 
