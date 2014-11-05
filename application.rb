@@ -2,6 +2,20 @@ require './dependencies.rb'
 
 set :public_folder, File.dirname(__FILE__) + '/public'
 
+get '/' do
+	@session_id = Digest::MD5.hexdigest(request.ip + request.user_agent + Time.now.to_s)
+	@description = "We tell you why stuff happens."
+
+	request_data = RequestData.new({
+		session_id: @session_id,
+		user_agent: request.user_agent,
+		ip: request.ip
+	})
+
+	request_data.save
+
+	erb :index
+end
 
 get '/iphone-better-than-android' do
 	@session_id = Digest::MD5.hexdigest(request.ip + request.user_agent + Time.now.to_s)

@@ -5,19 +5,66 @@ form {
 html {
 	margin     : 0;
 	padding    : 0;
-	background : #5d5d5d;
+	background : #8E8E8E;
+	font-size  : 13pt;
+	font-family: 'Oxygen', sans-serif;
 }
 
 body {
 	height : 100%;
 }
 
-main {
+#main_content {
+	padding : 8px;
+	background: #EFEFEF;
+	border-radius: 0 0 5px;
+}
+
+#main_content h2, #main_content h3 {
+	font-family: 'Raleway', sans-serif;
+}
+
+.article-list {
+	padding-left: 20px;
+}
+
+article.hidden {
 	visibility: hidden;
 	height:0;
 }
-p {
-	color      : #efefef;
+article.full p {
 	font-size  : 6em;
 	text-align : center;
+}
+
+
+h1 {
+	color : #efefef;
+	font-size: 1.8em;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size : 1.3em;
+}
+
+h2, h3 , p {
+	color : #333333;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color : #414141;
+}
+a:hover {
+	color : #A7261E;
+}
+
+.navbar {
+	background : #374140;
+	padding : 8px;
+	border-radius : 5px 5px 0 0;
 }
