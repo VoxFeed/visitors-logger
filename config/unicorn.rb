@@ -1,21 +1,9 @@
-# set path to app that will be used to configure unicorn,
-# note the trailing slash in this example
-@dir = "/home/deploy/apps/TellYouWhy/current/"
+root = "/home/deploy/apps/TellYouWhy/current"
+working_directory root
+pid "#{root}/tmp/pids/unicorn.pid"
+stderr_path "#{root}/log/unicorn.log"
+stdout_path "#{root}/log/unicorn.log"
 
-puts "DIR!! " + @dir
-
+listen "/tmp/unicorn.tellyouwhy.sock"
 worker_processes 2
-working_directory @dir
-
 timeout 30
-
-# Specify path to socket unicorn listens to,
-# we will use this in our nginx.conf later
-listen "/tmp/unicorn.tellyouwhy.sock", :backlog => 64
-
-# Set process id path
-pid "#{@dir}tmp/pids/unicorn.pid"
-
-# Set log file paths
-stderr_path "#{@dir}log/unicorn.stderr.log"
-stdout_path "#{@dir}log/unicorn.stdout.log"
