@@ -51,6 +51,22 @@ get '/you-got-virus-and-malware' do
 	erb :virus, :layout => :main_layout
 end
 
+get '/you-struggle-with-ios' do
+	@session_id = Digest::MD5.hexdigest(request.ip + request.user_agent + Time.now.to_s)
+	@title = "You struggle with iOS"
+	@description = "The main reason why you struggle with iOS."
+	@image = "/images/2014/you-struggle-with-ios/post-image.jpg"
+
+	request_data = RequestData.new({
+		session_id: @session_id,
+		user_agent: request.user_agent,
+		ip: request.ip
+	})
+
+	request_data.save
+
+	erb :struggle_with_ios, :layout => :main_layout
+end
 
 post '/capture_request' do
 	puts params

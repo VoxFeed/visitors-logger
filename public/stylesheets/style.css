@@ -37,6 +37,11 @@ article.full p {
 	text-align : center;
 }
 
+article.full .small-note {
+	font-size : 1.6em;
+	text-align: center;
+}
+
 
 h1 {
 	color : #efefef;
